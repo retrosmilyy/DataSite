@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 const networks = [
   {
     id: "mtn",
@@ -32,69 +34,67 @@ const networks = [
 ]
 
 export default function NetworkSelector() {
+  const [activeNetId, setActiveNetId] = useState(null)
+
   return (
     <div className="mb-6">
       <p className="text-[11px] font-mono text-[#4a5568] tracking-widest mb-3">
         STEP 1 - SELECT NETWORK
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-       {networks.map((net) => {
-         <button key={net.id} className="flex items-center gap-3 rounded-2xl px-4 py-3 border text-left">
-           <div
-            className="w-9 h-9 rounded-full flex items-center justify-center"
-            style={{ background: net.color}}
-          >
-             <span
-              style={{ color: net.iconText, fontSize: net.iconSize }}
-              className="font-black"
+        {networks.map(net => {
+          const isActive = activeNetId === net.id
+          return (
+            <button
+              key={net.id}
+              type="button"
+              onClick={() => setActiveNetId(net.id)}
+              aria-pressed={isActive}
+              className="flex items-center gap-4 rounded-2xl px-4 py-3 border text-left transition-all duration-200"
+              style={{
+                background: isActive ? net.bg : "#0d1117",
+                borderColor: isActive ? net.color : "#1a2030",
+                boxShadow: isActive ? `0 0 20px ${net.color}22` : "none",
+              }}
             >
-              {net.iconLabel}
-            </span>
-          </div>
+              <div
+                className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
+                style={{ background: net.color }}
+              >
+                <span
+                  className="font-black leading-none"
+                  style={{ color: net.iconText, fontSize: net.iconSize }}
+                >
+                  {net.iconLabel}
+                </span>
+              </div>
 
-          <div className="flex-1">
-            <p className="font-bold text-sm text-[#eef0f5]">{net.name}</p>
-            <p className="text-xs text-muted mt-0.5">Non-Expiry</p>
-          </div>
-        </button>
+              <div className="flex-1 text-[#eef0f5]">
+                <p className="font-bold text-sm ">{net.name}</p>
+                <p className="text-xs text-muted mt-0.5">{net.label}</p>
+              </div>
 
-        {/* AirtelTigo Button */}
+              {/* Checkmark only shows on the active button */}
 
-        <button className="flex items-center gap-3 rounded-2xl px-4 py-3 border text-left">
-          <div
-            className="w-9 h-9 rounded-full flex items-center justify-center"
-            style={{ background: "#ff3b30" }}
-          >
-            <span
-              style={{ color: "#ffffff", fontSize: 12 }}
-              className="font-black"
-            >
-              AT
-            </span>
-          </div>
-          <div className="flex-1">
-            <p className="font-bold text-sm text-[#eef0f5]">AirtelTigo</p>
-            <p className="text-xs text-muted mt-0.5">Premium</p>
-          </div>
-        </button>
-
-        <button className="flex items-center gap-3 rounded-2xl px-4 py-3 border text-left">
-          <div
-            className="w-9 h-9 rounded-full flex items-center justify-center"
-            style={{ background: "#34c759" }}
-          >
-            <span
-              style={{ color: "#ffffff", fontSize: 10 }}
-              className="font-black"
-            >
-              TEL
-            </span>
-          </div>
-          <div className="flex-1">
-            <p className="font-bold text-sm text-[#eef0f5]">Telecel</p>
-            <p className="text-xs text-muted mt-0.5">Ghana</p>
-          </div>
-        </button>
+              {isActive && (
+                <div
+                  className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
+                  style={{ background: net.color }}
+                >
+                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+                    <path
+                      d="M2 5.5L4.5 8L9 3"
+                      stroke="#000"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              )}
+            </button>
+          )
+        })}
       </div>
     </div>
   )
