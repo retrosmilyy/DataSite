@@ -8,7 +8,7 @@ export default function BundleGrid({ network, onBuyNow }) {
         <span style={{ color: network.color }}>
           {network.name} {network.label}
         </span>{" "}
-        · {network.bundles.length} packages
+        · {network.bundles.length} packages available
       </p>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
