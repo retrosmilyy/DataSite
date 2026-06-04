@@ -3,7 +3,7 @@ import BundleCard from "./BundleCard.jsx"
 export default function BundleGrid({ network, onBuyNow }) {
   return (
     <div className="animate-fadein">
-      <p className="text-[11px] font-mono text-[#4a5568] tracking-widest mb-4">
+      <p className="text-[11px] font-mono text-slate-500 tracking-widest mb-4">
         STEP 2 — CHOOSE BUNDLE ·{" "}
         <span style={{ color: network.color }}>
           {network.name} {network.label}

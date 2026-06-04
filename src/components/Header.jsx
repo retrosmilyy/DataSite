@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <header className="border-b border-[#13181f] px-4">
+    <header className="border-b border-slate-100 px-4">
       <div className="max-w-2xl mx-auto h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-linear-to-br from-[#00c2ff] to-[#0070ff] flex items-center justify-center shrink-0">
@@ -17,7 +17,7 @@ export default function Header() {
             <p className="font-extrabold text-base leading-tight tracking-wide">
               DataVault
             </p>
-            <p className="text-[10px] text-[#4a5568] font-mono tracking-widest">
+            <p className="text-[10px] text-slate-500 font-mono tracking-widest">
               GHANA ~ INSTANT DATA
             </p>
           </div>

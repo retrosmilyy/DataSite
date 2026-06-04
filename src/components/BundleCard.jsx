@@ -7,8 +7,8 @@ export default function BundleCard({ bundle, network, onBuyNow }) {
     <div
       className="rounded-2xl p-4 border cursor-pointer transition-all duration-200 relative overflow-hidden"
       style={{
-        background: hovered ? network.bg : "#0d1117",
-        borderColor: hovered ? network.color : "#1a2030",
+        background: hovered ? network.bg : "#ffffff",
+        borderColor: hovered ? network.color : "#e2e8f0",
         transform: hovered ? "translateY(-3px)" : "translateY(0)",
       }}
       onMouseEnter={() => setHovered(true)}
@@ -29,14 +29,14 @@ export default function BundleCard({ bundle, network, onBuyNow }) {
       >
         {bundle.name}
       </p>
-      <p className="text-[10px] font-mono text-[#3a4555] mb-3 tracking-wider">
+      <p className="text-[10px] font-mono text-slate-500 mb-3 tracking-wider">
         NON-EXPIRY
       </p>
       <p className="font-bold text-base mb-3">{bundle.price}</p>
 
       <button
         onClick={onBuyNow}
-        className="w-full py-2 rounded-xl text-sm font-bold text-black transition-all duration-150 hover:brightness-110"
+        className={`w-full py-2 rounded-xl text-sm font-bold transition-all duration-150 hover:brightness-110 ${network.id === "mtn" ? "text-black" : "text-white"}`}
         style={{ background: network.color }}
       >
         Buy Now

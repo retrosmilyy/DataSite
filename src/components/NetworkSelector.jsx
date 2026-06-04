@@ -4,10 +4,11 @@ export const networks = [
     name: "MTN",
     label: "Non-Expiry",
     color: "#FFD700",
-    bg: "#1a1500",
+    bg: "#fffbeb",
     iconLabel: "MTN",
     iconText: "#1a1500",
     iconSize: 11,
+    prefixes: ["024", "025", "053", "054", "055", "059", "098"],
     bundles: [
       { id: 1, name: "1GB", price: "GHS 10" },
       { id: 2, name: "2GB", price: "GHS 20" },
@@ -22,10 +23,11 @@ export const networks = [
     name: "AirtelTigo",
     label: "Premium",
     color: "#34C759",
-    bg: "#1a0500",
+    bg: "#f0fdf4",
     iconLabel: "AT",
     iconText: "#ffffff",
     iconSize: 12,
+    prefixes: ["026", "027", "056", "057"],
     bundles: [
       { id: 7, name: "1.5GB", price: "GHS 10" },
       { id: 8, name: "3GB", price: "GHS 20" },
@@ -40,10 +42,11 @@ export const networks = [
     name: "Telecel",
     label: "Ghana",
     color: "#FF3B30",
-    bg: "#001508",
+    bg: "#fef2f2",
     iconLabel: "TEL",
     iconText: "#ffffff",
     iconSize: 10,
+    prefixes: ["020", "050"],
     bundles: [
       { id: 13, name: "2GB", price: "GHS 15" },
       { id: 14, name: "5GB", price: "GHS 30" },
@@ -58,7 +61,7 @@ export const networks = [
 export default function NetworkSelector({ activeNetId, onSelect }) {
   return (
     <div className="mb-6">
-      <p className="text-[11px] font-mono text-[#4a5568] tracking-widest mb-3">
+      <p className="text-[11px] font-mono text-slate-500 tracking-widest mb-3">
         STEP 1 - SELECT NETWORK
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -72,8 +75,8 @@ export default function NetworkSelector({ activeNetId, onSelect }) {
               aria-pressed={isActive}
               className="flex items-center gap-4 rounded-2xl px-4 py-3 border text-left transition-all duration-200"
               style={{
-                background: isActive ? net.bg : "#0d1117",
-                borderColor: isActive ? net.color : "#1a2030",
+                background: isActive ? net.bg : "#ffffff",
+                borderColor: isActive ? net.color : "#e2e8f0",
                 boxShadow: isActive ? `0 0 20px ${net.color}22` : "none",
               }}
             >
@@ -89,7 +92,7 @@ export default function NetworkSelector({ activeNetId, onSelect }) {
                 </span>
               </div>
 
-              <div className="flex-1 text-[#eef0f5]">
+              <div className="flex-1 text-slate-900">
                 <p className="font-bold text-sm ">{net.name}</p>
                 <p className="text-xs text-muted mt-0.5">{net.label}</p>
               </div>
