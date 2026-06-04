@@ -3,6 +3,7 @@ import BundleGrid from "./components/BundleGrid"
 import Header from "./components/Header"
 import HeroBanner from "./components/HeroBanner"
 import NetworkSelector, { networks } from "./components/NetworkSelector"
+import BundleCard from "./components/BundleCard"
 
 export default function App() {
   const [activeNetId, setActiveNetId] = useState(null)
@@ -19,6 +20,7 @@ export default function App() {
           onBuyNow={bundle => console.log("Buying", bundle)}
         />
       )}
+      <BundleCard />
     </div>
   )
 }

@@ -17,7 +17,7 @@ export default function Header() {
             <p className="font-extrabold text-base leading-tight tracking-wide">
               DataVault
             </p>
-            <p className="text-[10px] text-[#4a5568] font-mono trackin-widest">
+            <p className="text-[10px] text-[#4a5568] font-mono tracking-widest">
               GHANA ~ INSTANT DATA
             </p>
           </div>

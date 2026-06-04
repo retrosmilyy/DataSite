@@ -1,6 +1,4 @@
-import { useState } from "react"
-
-const networks = [
+export const networks = [
   {
     id: "mtn",
     name: "MTN",
@@ -10,6 +8,10 @@ const networks = [
     iconLabel: "MTN",
     iconText: "#1a1500",
     iconSize: 11,
+    bundles: [
+      { id: 1, name: "1GB", price: "GHS 10" },
+      { id: 2, name: "2GB", price: "GHS 20" },
+    ],
   },
   {
     id: "at",
@@ -20,6 +22,10 @@ const networks = [
     iconLabel: "AT",
     iconText: "#ffffff",
     iconSize: 12,
+    bundles: [
+      { id: 3, name: "1.5GB", price: "GHS 10" },
+      { id: 4, name: "3GB", price: "GHS 20" },
+    ],
   },
   {
     id: "telecel",
@@ -30,12 +36,14 @@ const networks = [
     iconLabel: "TEL",
     iconText: "#ffffff",
     iconSize: 10,
+    bundles: [
+      { id: 5, name: "2GB", price: "GHS 15" },
+      { id: 6, name: "5GB", price: "GHS 30" },
+    ],
   },
 ]
 
-export default function NetworkSelector() {
-  const [activeNetId, setActiveNetId] = useState(null)
-
+export default function NetworkSelector({ activeNetId, onSelect }) {
   return (
     <div className="mb-6">
       <p className="text-[11px] font-mono text-[#4a5568] tracking-widest mb-3">
@@ -48,7 +56,7 @@ export default function NetworkSelector() {
             <button
               key={net.id}
               type="button"
-              onClick={() => setActiveNetId(net.id)}
+              onClick={() => onSelect(net.id)}
               aria-pressed={isActive}
               className="flex items-center gap-4 rounded-2xl px-4 py-3 border text-left transition-all duration-200"
               style={{
