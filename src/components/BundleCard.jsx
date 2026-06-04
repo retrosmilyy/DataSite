@@ -32,7 +32,7 @@ export default function BundleCard({ bundle, network, onBuyNow }) {
       <p className="text-[10px] font-mono text-[#3a4555] mb-3 tracking-wider">
         NON-EXPIRY
       </p>
-      <p className="font-bold text-base mb-3">{bundle.price}</p>
+      <p className="font-bold text-base mb-3 text-white">{bundle.price}</p>
 
       <button
         onClick={onBuyNow}
