@@ -69,7 +69,7 @@ export default function SuccessScreen({ network, bundle, email, onReset }) {
       <button
         onClick={onReset}
         className={`px-10 py-3.5 rounded-2xl font-bold text-sm transition-all hover:brightness-110 ${network.id === "mtn" ? "text-black" : "text-white"}`}
-        style={{ background: network.color }}
+        style={{ background: network.gradient || network.color }}
       >
         Buy Another Bundle
       </button>

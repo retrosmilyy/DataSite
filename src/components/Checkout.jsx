@@ -157,7 +157,9 @@ export default function Checkout({ network, bundle, onBack, onSuccess }) {
           onClick={validate}
           className={`w-full py-4 rounded-2xl font-extrabold text-base transition-all hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0 ${network.id === "mtn" ? "text-black" : "text-white"}`}
           style={{
-            background: `linear-gradient(120deg, ${network.color}, ${network.color}cc)`,
+            background:
+              network.gradient ||
+              `linear-gradient(120deg, ${network.color}, ${network.color}cc)`,
             boxShadow: `0 4px 20px ${network.color}40`,
           }}
         >

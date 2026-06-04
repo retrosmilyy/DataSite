@@ -16,8 +16,8 @@ export default function BundleCard({ bundle, network, onBuyNow }) {
     >
       {bundle.tag && (
         <div
-          className="absolute top-2 right-2 text-[9px] font-bold px-2 py-0.5 rounded-md font-mono tracking-wide text-black"
-          style={{ background: network.color }}
+          className={`absolute top-2 right-2 text-[9px] font-bold px-2 py-0.5 rounded-md font-mono tracking-wide ${network.id === "mtn" ? "text-black" : "text-white"}`}
+          style={{ background: network.gradient || network.color }}
         >
           {bundle.tag.toUpperCase()}
         </div>
@@ -37,7 +37,7 @@ export default function BundleCard({ bundle, network, onBuyNow }) {
       <button
         onClick={onBuyNow}
         className={`w-full py-2 rounded-xl text-sm font-bold transition-all duration-150 hover:brightness-110 ${network.id === "mtn" ? "text-black" : "text-white"}`}
-        style={{ background: network.color }}
+        style={{ background: network.gradient || network.color }}
       >
         Buy Now
       </button>
